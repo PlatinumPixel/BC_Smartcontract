@@ -1,4 +1,14 @@
-#tickets {
-    display:grid;
-    grid-template-columns: repeat (4,1fr);
+#header{
+    margin-bottom: 20px;
 }
+
+#tickets {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.ticket{
+    margin-bottom: 20px;
+}
+

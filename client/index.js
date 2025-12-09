@@ -27,6 +27,15 @@ let account;
 const accountEl = document.getElementById("account");
 const ticketsEl = document.getElementById("tickets");
 
+const buyTicket = async (ticket) => {
+    await contract.methods
+    .buyTicket(ticket.id)
+    .send({from: account,value: ticket.price}
+    );
+    await refreshTickets();
+}
+
+
 const refreshTickets = async () => {
     ticketsEl.innerHTML = '';
     for (let i = 0; i < TOTAL_TICKETS; i++) {
@@ -39,10 +48,12 @@ const refreshTickets = async () => {
                     <div class="card-body">
                         <h5 class="card-title">Ticket #${ticket.id}</h5>
                         <p class="card-text">Price: ${web3.utils.fromWei(ticket.price, 'ether')} ETH</p>
-                        <button class="btn btn-primary" id="buy-ticket-${ticket.id}">Buy Ticket</button>
+                        <button class="btn btn-primary">Buy Ticket</button>
                     </div>
                 </div>
             `);
+            const button = ticketEl.querySelector('button');
+            button.onclick = buyTicket.bind(null, ticket)
             ticketsEl.appendChild(ticketEl);
         }
     }
