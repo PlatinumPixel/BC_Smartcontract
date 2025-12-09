@@ -1,0 +1,5 @@
+#tickets {
+  grid-template-columns: repeat (4, 1fr);
+  display: grid;
+}
+/*# sourceMappingURL=client.3a01df49.css.map */

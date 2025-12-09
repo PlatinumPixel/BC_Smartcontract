@@ -1,0 +1,1 @@
+{"mappings":"AAAA","sources":["style.css"],"sourcesContent":["#tickets {\r\n    display:grid;\r\n    grid-template-columns: repeat (4,1fr);\r\n}"],"names":[],"version":3,"file":"client.3a01df49.css.map","sourceRoot":"/__parcel_source_root/"}
