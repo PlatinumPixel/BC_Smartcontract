@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 contract Tickets {
-    address public owner = msg.sender;
+    address public owner;
 
     struct Ticket {
         uint256 id;
@@ -13,6 +13,10 @@ contract Tickets {
 
     Ticket[] public tickets; // Dynamic array
     uint256 private _nextId = 0; // Track next ticket ID
+
+    constructor() {
+        owner = msg.sender;
+    }
 
     // Mint a new ticket (only owner)
     function mintTicket(uint256 price) external {
