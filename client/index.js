@@ -79,13 +79,11 @@ const refreshTickets = async () => {
     
     let total = 0;
     try {
-        // Try to get the number of tickets by reading until it fails
         while (true) {
             await contract.methods.tickets(total).call();
             total++;
         }
     } catch (e) {
-        // End of tickets
     }
 
     console.log('Total tickets found:', total);
@@ -173,7 +171,6 @@ const updateAccount = (acc) => {
 };
 
 const renderMintSection = async () => {
-    // Only show mint form if user is contract owner
     let contractOwner;
     try {
         contractOwner = await contract.methods.owner().call();
@@ -203,7 +200,6 @@ const renderMintSection = async () => {
 
 const main = async () => {
     try {
-        // Check if MetaMask is installed
         if (!window.ethereum) {
             accountEl.innerText = 'MetaMask is not installed';
             console.error('MetaMask not found');
@@ -213,7 +209,6 @@ const main = async () => {
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         updateAccount(accounts[0]);
 
-        // Listen for account changes
         window.ethereum.on('accountsChanged', (accounts) => {
             if (accounts.length > 0) {
                 updateAccount(accounts[0]);

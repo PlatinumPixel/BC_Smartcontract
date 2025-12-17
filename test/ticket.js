@@ -1,4 +1,4 @@
-// tests/tickets.test.js
+
 const assert = require("assert");
 const Tickets = artifacts.require("Tickets");
 
